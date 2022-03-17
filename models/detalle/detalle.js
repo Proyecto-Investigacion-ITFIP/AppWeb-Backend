@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
-import { facturaMODEL } from './factura';
-import { productoMODEL } from './producto';
+import { facturaMODEL } from '../factura/factura';
+import { productoMODEL } from '../producto/producto';
 
 const UserSchema = new Schema({
     cantidad:{

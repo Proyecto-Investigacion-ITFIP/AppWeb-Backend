@@ -1,11 +1,10 @@
 import { Schema, model } from 'mongoose';
-import { UserMODEL } from './user';
+import { UserMODEL } from '../usuario/usuario';
 
 const UserSchema = new Schema({
     descuento:{
         type: Number,
         required: false,
-    
     },
     FechaPedido:{
         type: Date,

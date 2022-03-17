@@ -1,11 +1,15 @@
 import { connectDB } from "./db/db";
-import { detalleMODEL } from "./models/detalle";
-import { facturaMODEL } from "./models/factura";
-import { productoMODEL } from "./models/producto";
-import { UserMODEL }  from "./models/user";
+import { detalleMODEL } from "./models/detalle/detalle";
+import { facturaMODEL } from "./models/factura/factura";
+import { productoMODEL } from "./models/producto/producto";
+import { UserMODEL }  from "./models/usuario/usuario";
 
 const main = async () => {
     await connectDB();  
+
+};
+
+main();
 
     // detalleMODEL.create({
     //     cantidad: 1,
@@ -19,13 +23,13 @@ const main = async () => {
     //     console.error('Error creando el ususario', err);
     // });
 
-    const detalle = await detalleMODEL.find({ _id:'62290e8ae6ece6e6e1c25a3e' }).populate('factura');
-    console.log('el detalle es:' , detalle)
-};
+    // MOSTRAR QUERY RELACION FUERTE 
+    // const detalle = await detalleMODEL.find({ _id:'62290e8ae6ece6e6e1c25a3e' })
+    // .populate('factura')
+    // .populate('producto');
+    // console.log('el detalle es:' , detalle)  
 
-main();
 
-// facturaMODEL.create({
 //     descuento: 0,
 //     FechaPedido: Date.now(),
 //     subtotal: 12,

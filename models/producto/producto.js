@@ -24,8 +24,8 @@ const UserSchema = new Schema({
     },
     estadoProducto:{
         type: String,
-        emum: ['Disponible', 'Agotado'],
-        default: 'Disponible',
+        emum: ['DISPONIBLE', 'AGOTADO'],
+        default: 'DISPONIBLE',
     },
 });
 
