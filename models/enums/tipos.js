@@ -7,8 +7,8 @@ const tiposEnums = gql`
     NO_AUTORIZADO
   }
   enum Enum_Rol {
-    ESTUDIANTE
-    LIDER
+    USUARIO_CAJA
+    CLIENTE
     ADMINISTRADOR
   }
   enum Enum_EstadoProducto{

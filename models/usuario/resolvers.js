@@ -16,7 +16,7 @@ const resolversUsuario = {
     crearUsuario: async (parent, args) => {
       const usuarioCreado = await UsuarioMODEL.create({
         nombre: args.nombre,
-        apellido: args.apellido,
+        apellido: args.apellido,    
         email: args.email,
         identificacion: args.identificacion,
         telefono: args.telefono,
@@ -41,7 +41,7 @@ const resolversUsuario = {
         estado: args.estado,
       });
 
-      return usuarioEditado;
+      return usuarioEditado;  
     },
 
     eliminarUsuario: async (parent, args) => {

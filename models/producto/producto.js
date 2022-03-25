@@ -1,10 +1,15 @@
-import { Schema, model } from 'mongoose';
+import mongoose from 'mongoose';
+const { Schema, model } = mongoose
 
-const UserSchema = new Schema({
-    producto:{
+const ProductoSchema = new Schema({
+    nombreProducto:{
         type: String,
         required: true,
         unique: true    
+    },
+    descripcion:{
+        type: String,   
+        required: true,
     },
     marca:{
         type: String,
@@ -29,6 +34,6 @@ const UserSchema = new Schema({
     },
 });
 
-const productoMODEL = model('producto', UserSchema)
+const ProductoMODEL = model('producto', ProductoSchema)
 
-export { productoMODEL };
+export { ProductoMODEL };

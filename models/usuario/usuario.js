@@ -33,11 +33,11 @@ const UsuarioSchema = new Schema({
     rol:{
         type: String,
         required: true,
-        enum: ['USUARIO-CAJA', 'CLIENTE', 'ADMINISTRADOR']
+        enum: ['USUARIO_CAJA', 'CLIENTE', 'ADMINISTRADOR']
     },
     estado:{
         type: String,
-        emum: ['PENDIENTE', 'AUTORIZADO', 'NO-AUTORIZADO'],
+        emum: ['PENDIENTE', 'AUTORIZADO', 'NO_AUTORIZADO'],
         default: 'PENDIENTE',
     },
 });
