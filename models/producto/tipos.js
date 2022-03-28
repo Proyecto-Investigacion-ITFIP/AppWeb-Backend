@@ -14,11 +14,10 @@ const tiposProducto = gql`
   
   type Query {
     Productos: [Producto]
-    Producto(_id: String!): Producto
+    Producto( _id: String! ) : Producto
   }
   
   type Mutation {
-    
     crearProducto(
       nombreProducto: String!
       descripcion: String!
@@ -30,16 +29,17 @@ const tiposProducto = gql`
     ): Producto
 
     editarProducto(
+      _id: String!
       nombreProducto: String!
       descripcion: String!
       marca: String!
       modelo: String!
       precioUnidad: Float!
       cantidadTotalExistente: Int!
-      estado: Enum_EstadoProducto
+      estadoProducto: Enum_EstadoProducto
     ): Producto
 
-    eliminarProducto(_id: String ): Producto
+    eliminarProducto( _id: String, nombreProducto: String ) : Producto
   }
 `;
 

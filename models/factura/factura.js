@@ -1,12 +1,14 @@
-import { Schema, model } from 'mongoose';
-import { UserMODEL } from '../usuario/usuario';
+import mongoose from 'mongoose';
+import { UsuarioMODEL } from '../usuario/usuario.js ';
 
-const UserSchema = new Schema({
+const { Schema, model } = mongoose
+
+const FacturaSchema = new Schema({
     descuento:{
         type: Number,
         required: false,
     },
-    FechaPedido:{
+    fechaPedido:{
         type: Date,
         required: true,
     },
@@ -14,7 +16,7 @@ const UserSchema = new Schema({
         type: Number,
         required: true, 
     },  
-    IVA:{
+    iva:{
         type: Number,
         required: true,
     },
@@ -22,13 +24,13 @@ const UserSchema = new Schema({
         type: Number,
         required: true,
     },
-    cliente:{
+    cliente: {
         type: Schema.Types.ObjectId,
-        required:true,
-        ref:UserMODEL,
-    },      
+        ref: UsuarioMODEL,
+        required: true,
+    },
 });
 
-const facturaMODEL = model('factura', UserSchema)
+const FacturaMODEL = model('factura', FacturaSchema )
 
-export { facturaMODEL };
+export { FacturaMODEL };
