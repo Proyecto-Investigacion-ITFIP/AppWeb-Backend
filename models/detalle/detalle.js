@@ -2,7 +2,7 @@ import { Schema, model } from 'mongoose';
 import { facturaMODEL } from '../factura/factura';
 import { productoMODEL } from '../producto/producto';
 
-const UserSchema = new Schema({
+const DetalleSchema = new Schema({
     cantidad:{
         type: Number,
         required: true,
@@ -24,6 +24,6 @@ const UserSchema = new Schema({
 
 });
 
-const detalleMODEL = model('detalle', UserSchema)
+const detalleMODEL = model('detalle', DetalleSchema)
 
 export { detalleMODEL };

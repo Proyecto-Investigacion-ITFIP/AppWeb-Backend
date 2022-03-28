@@ -30,11 +30,29 @@ const resolversProducto = {
             return productoCreado;
         },
 
+        editarProducto: async (parent, args) => {
+            const productoEditado = await ProductoMODEL.findByIdAndUpdate(args._id, {
+                nombreProducto: args.nombreProducto, 
+                descripcion: args.descripcion,
+                marca: args.marca,
+                modelo: args.modelo,
+                precioUnidad: args.precioUnidad,
+                cantidadTotalExistente: args.cantidadTotalExistente,
+            });
+            return productoEditado;  
+          },
+
 
         eliminarProducto: async (parent, args) => {
-                
-        }
-    }
+            if (Object.keys(args).includes('_id')) {
+                const productoEliminado = await ProductoMODEL.findOneAndDelete({ _id: args._id });
+                return productoEliminado;
+            } else if (Object.keys(args).includes('nombreProducto')) {
+                const productoEliminado = await ProductoMODEL.findOneAndDelete({ nombreProducto: args.nombreProducto });
+                return productoEliminado;
+            }     
+        },
+    },
 };
 
 export { resolversProducto };
