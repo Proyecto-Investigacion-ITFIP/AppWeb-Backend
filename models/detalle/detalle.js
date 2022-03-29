@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 const { Schema, model } = mongoose
-import { facturaMODEL } from '../factura/factura';
-import { productoMODEL } from '../producto/producto';
+import { FacturaMODEL } from '../factura/factura.js';
+import { ProductoMODEL } from '../producto/producto.js';
 
 const DetalleSchema = new Schema({
     cantidad:{
@@ -15,16 +15,16 @@ const DetalleSchema = new Schema({
     factura:{
         type: Schema.Types.ObjectId,
         required: true,
-        ref: facturaMODEL,
+        ref: FacturaMODEL,
     },
     producto:{
         type: Schema.Types.ObjectId,
         required: true,
-        ref: productoMODEL
+        ref: ProductoMODEL
     },
 
 });
 
-const detalleMODEL = model('detalle', DetalleSchema)
+const DetalleMODEL = model('detalle', DetalleSchema)
 
-export { detalleMODEL };
+export { DetalleMODEL };

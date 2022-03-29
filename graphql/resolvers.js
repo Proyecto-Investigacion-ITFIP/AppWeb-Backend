@@ -1,6 +1,6 @@
 import { resolversUsuario } from '../models/usuario/resolvers.js'
 import { resolversProducto } from '../models/producto/resolvers.js';
 import { resolversFactura } from '../models/factura/resolvers.js';
-// import { resolverDetalle }
+import { resolversDetalle } from '../models/detalle/resolvers.js';
 
-export const resolvers = [resolversUsuario, resolversProducto, resolversFactura];
+export const resolvers = [resolversUsuario, resolversProducto, resolversFactura, resolversDetalle];
