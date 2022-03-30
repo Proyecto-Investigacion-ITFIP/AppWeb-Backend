@@ -38,7 +38,9 @@ const resolversProducto = {
                 modelo: args.modelo,
                 precioUnidad: args.precioUnidad,
                 cantidadTotalExistente: args.cantidadTotalExistente,
-            });
+            },
+                { new: true }
+            );
             return productoEditado;  
           },
 

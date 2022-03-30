@@ -39,7 +39,9 @@ const resolversUsuario = {
         telefono: args.telefono,
         rol: args.rol,
         estado: args.estado,
-      });
+      },
+        { new: true }
+      );
       return usuarioEditado;  
     },
 
