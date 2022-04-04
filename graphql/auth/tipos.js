@@ -17,7 +17,15 @@ const tiposAutenticacion = gql`
       estado: Enum_EstadoUsuario
       contrasena: String!
     ): Token!
+
+    login(
+      email: String!
+      contrasena: String!
+    ): Token
+
+    validarToken: Token
+
   }
 `;
 
-export { tiposAutenticacion };
+export { tiposAutenticacion };   

@@ -16,7 +16,7 @@ const resolversAutenticacion = {
                 contrasena: hashedPassword,
                 rol: args.rol,
             });
-            console.log('Usuario Creado', registroCreado);
+            // console.log('Usuario Creado', registroCreado);
             return { 
                 token: generarToken({
                     _id: registroCreado._id,
@@ -29,7 +29,31 @@ const resolversAutenticacion = {
                 }),
             };
         },
-    },
+
+        login: async (parent, args) => {
+            const usuarioEncontrado = await UsuarioMODEL.findOne({ email: args.email });
+            if ( await bcrypt.compare(args.contrasena, usuarioEncontrado.contrasena) ) {
+                // console.log(args, usuarioEncontrado, comparacion)
+                return { 
+                    token: generarToken({
+                        _id: usuarioEncontrado._id,
+                        nombre: usuarioEncontrado.nombre,
+                        apellido: usuarioEncontrado.apellido,
+                        email: usuarioEncontrado.email,
+                        identificacion: usuarioEncontrado.identificacion,
+                        telefono: usuarioEncontrado.telefono,
+                        rol: usuarioEncontrado.rol,
+                    }),
+                };
+            }
+        },
+
+        validarToken : async (parent, args, context) => {
+            console.log(context)
+            // validar que el contexto tenga la info del usr
+            // si. refrescar token   //no devolver null redirigir login
+        }
+    }
 };  
 
 export { resolversAutenticacion };
