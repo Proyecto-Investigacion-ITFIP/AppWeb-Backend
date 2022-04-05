@@ -23,7 +23,7 @@ const tiposAutenticacion = gql`
       contrasena: String!
     ): Token
 
-    validarToken: Token
+    refrescarToken: Token
 
   }
 `;

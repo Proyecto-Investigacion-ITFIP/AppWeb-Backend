@@ -24,6 +24,7 @@ const server = new ApolloServer({
   context: ({ req }) => {
     //obtener el token desde la variable req
     //console.log('token desde el frond: ',req.headers.authorization)
+    //si el reques tiene un token; validar si esta ok 
     const token = req.headers?.authorization ?? null;
     if (token) {
       const usuarioData = getUsuarioData(token);

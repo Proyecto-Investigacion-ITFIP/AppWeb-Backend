@@ -48,12 +48,29 @@ const resolversAutenticacion = {
             }
         },
 
-        validarToken : async (parent, args, context) => {
-            console.log(context)
+        refrescarToken : async (parent, args, context) => {
+            console.log('context' ,context)
             // validar que el contexto tenga la info del usr
             // si. refrescar token   //no devolver null redirigir login
-        }
-    }
+            if(!context.usuarioData){ 
+                return{
+                    error: 'token no valido'
+                }
+            } else {
+                return {
+                    token: generarToken({
+                        _id: context.usuarioData._id,
+                        nombre: context.usuarioData.nombre,
+                        apellido: context.usuarioData.apellido,
+                        email: context.usuarioData.email,
+                        identificacion: context.usuarioData.identificacion,
+                        telefono: context.usuarioData.telefono,
+                        rol: context.usuarioData.rol,
+                    }),
+                };
+            };
+        },
+    },
 };  
 
 export { resolversAutenticacion };
