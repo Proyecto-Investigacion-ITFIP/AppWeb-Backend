@@ -2,13 +2,21 @@ import { UsuarioMODEL } from './usuario.js';
 
 const resolversUsuario = {
   Query: {
-    Usuarios: async (parent, args) => {
-      const usuarios = await UsuarioMODEL.find();
-      return usuarios;
+    Usuarios: async (parent, args, context) => {
+      if ( context.usuarioData.rol === 'ADMINISTRADOR'){
+        const usuarios = await UsuarioMODEL.find({rol: ['ADMINISTRADOR' ,'USUARIO_CAJA']});
+        return usuarios ;
+      } else {  
+        return null
+      }
     },
     Usuario: async (parent, args) => {
       const usuario = await UsuarioMODEL.findOne({ _id: args._id });
       return usuario;
+    },
+    Clientes: async (parent, args, context) => {
+        const clientes = await UsuarioMODEL.find({rol:'CLIENTE'});
+        return clientes;
     },
   },
 
