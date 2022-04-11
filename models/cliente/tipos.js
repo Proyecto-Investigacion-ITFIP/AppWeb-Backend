@@ -1,46 +1,47 @@
 import { gql } from "apollo-server-express";
 
-const tiposUsuario = gql`
-  type Usuario {
+const tiposCliente = gql`
+  type Cliente {
     _id: ID!
     nombre: String!
     apellido: String!
     email: String!
     identificacion: String!
     telefono: String!
-    rol: Enum_Rol!
-    estado: Enum_EstadoUsuario
+    departamento: String!
+    ciudad: String!
   }
   
   type Query {
-    Usuarios: [Usuario]
-    Usuario( _id: String! ): Usuario
+    Clientes: [Cliente]
+    Cliente( _id: String! ): Cliente
   }
   
   type Mutation {
     
-    crearUsuario(
+    crearCliente(
       nombre: String!
       apellido: String!
       email: String!
       identificacion: String!
       telefono: String!
-      rol: Enum_Rol!
-      estado: Enum_EstadoUsuario
-    ): Usuario
+      departamento: String!
+      ciudad: String!
+    ): Cliente
 
-    editarUsuario(
+    editarCliente(
       _id: String!
       nombre: String!
       apellido: String!
       email: String!  
       identificacion: String!
       telefono: String!
-      estado: Enum_EstadoUsuario!
-    ): Usuario
+      departamento: String!
+      ciudad: String!
+    ): Cliente
 
-    eliminarUsuario( _id: String, email: String ) : Usuario
+    eliminarCliente( _id: String, email: String ) : Cliente
   }
 `;
 
-export { tiposUsuario };
+export { tiposCliente };

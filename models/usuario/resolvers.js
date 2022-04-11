@@ -4,7 +4,7 @@ const resolversUsuario = {
   Query: {
     Usuarios: async (parent, args, context) => {
       if ( context.usuarioData.rol === 'ADMINISTRADOR'){
-        const usuarios = await UsuarioMODEL.find({rol: ['ADMINISTRADOR' ,'USUARIO_CAJA']});
+        const usuarios = await UsuarioMODEL.find();
         return usuarios ;
       } else {  
         return null
@@ -13,10 +13,6 @@ const resolversUsuario = {
     Usuario: async (parent, args) => {
       const usuario = await UsuarioMODEL.findOne({ _id: args._id });
       return usuario;
-    },
-    Clientes: async (parent, args, context) => {
-        const clientes = await UsuarioMODEL.find({rol:'CLIENTE'});
-        return clientes;
     },
   },
 
