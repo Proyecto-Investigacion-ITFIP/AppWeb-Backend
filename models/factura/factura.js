@@ -26,15 +26,9 @@ const FacturaSchema = new Schema({
     },
     cliente: {
         type: Schema.Types.ObjectId,
-<<<<<<< HEAD
         ref: UsuarioMODEL,
         required: true,
     },
-=======
-        required:true,
-        ref:UsuarioMODEL,
-    },      
->>>>>>> release
 });
 
 const FacturaMODEL = model('factura', FacturaSchema )
