@@ -10,11 +10,12 @@ const tiposCliente = gql`
     telefono: String!
     departamento: String!
     ciudad: String!
-  }
+  }  
   
   type Query {
     Clientes: [Cliente]
     Cliente( _id: String! ): Cliente
+    BuscarCliente( nombre: String! ): [Cliente]
   }
   
   type Mutation {

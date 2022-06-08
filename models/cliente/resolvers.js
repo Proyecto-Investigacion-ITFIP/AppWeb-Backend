@@ -10,6 +10,10 @@ const resolversCliente = {
       const cliente = await ClienteMODEL.findOne({ _id: args._id });
       return cliente;
     },
+    BuscarCliente: async (parent, args)  => { 
+      const buscarCliente = await ClienteMODEL.find({ nombre: args.nombre });
+      return buscarCliente;
+    },
   },
 
   Mutation: {
